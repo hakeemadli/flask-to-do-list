@@ -9,25 +9,27 @@
     {%block body%}
         
     <h1>To-do-List</h1>
-    <ul>
-        {%for todo in todos %}
-        <li>
-            <input type="checkbox" name="done" {%if todo ['done'] %} checked {%endif%} onchange="window.location.href= '{{ url_for('check', index = loop.index0) }}'">
-            <span {%if todo["done"]%} style="text-decoration: line-through;" {%endif%}>
-            {{todo ['task']}}
-            </span>
-            <a href="{{ url_for('check', index = loop.index0) }}">Check</a>
-            <a href="{{ url_for('edit', index = loop.index0) }}">Edit</a>
-            <a href="{{ url_for('delete', index = loop.index0) }}">Delete</a>
+    <table>
+        {%for task in tasks %}
+        <tr>
+            <td>
+                {{task.content}}
+            </td>
 
-        </li>
+            <td>
+                <a href="#">Check</a>
+                <a href="edit/{{task.id}}">Edit</a>
+                <a href="delete/{{task.id}}">Delete</a>
+            </td>
+        </tr>
         {%endfor%}
-    </ul>
+    </table>
 
-        <form action="{{url_for('add')}}" method="post">
-        <input type="text" name="todo">
+        <form action="/add" method="post">
+        <input type="text" name="content" id="content">
         <button type="submit">Add Task</button>
         </form>
+
     {% endblock %}
 </body>
 </html>
