@@ -7,13 +7,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///model.db'
 
 db = SQLAlchemy(app)
 
-#todos = [{"task" : "sample task", "done" : False}]
+#todos = [{"task" : "sample task", "complete" : False}]
 
 class Model(db.Model):
     
     id = db.Column(db.Integer, primary_key= True)
     content = db.Column(db.String(300), nullable = False)
-    done = db.Column(db.Boolean , default = False)
+    complete = db.Column(db.Boolean , default = False)
     
     def __repr__(self):
         return f'<Task {self.id}>'
@@ -63,7 +63,7 @@ def edit(id):
 def check(id):
     
     task = Model.query.get(id)
-    task.done = not task.done
+    task.complete = not task.complete
     db.session.commit()
     return redirect('/')
 

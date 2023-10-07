@@ -12,12 +12,18 @@
     <table>
         {%for task in tasks %}
         <tr>
+
             <td>
-                {{task.content}}
+                <input type="checkbox" name="complete" {% if task.complete %} checked {% endif %} onchange="window.location.href= '/check/{{task.id}}'">
+            </td>
+            <td>
+                <span {% if task.complete %} style="text-decoration: line-through;"{% endif %}>
+                    {{task.content}}
+                </span>
             </td>
 
             <td>
-                <a href="#">Check</a>
+                <a href="check/{{task.id}}">Check</a>
                 <a href="edit/{{task.id}}">Edit</a>
                 <a href="delete/{{task.id}}">Delete</a>
             </td>
