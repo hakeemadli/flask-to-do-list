@@ -7,8 +7,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///model.db'
 
 db = SQLAlchemy(app)
 
-#todos = [{"task" : "sample task", "complete" : False}]
-
 class Model(db.Model):
     
     id = db.Column(db.Integer, primary_key= True)
@@ -17,7 +15,6 @@ class Model(db.Model):
     
     def __repr__(self):
         return f'<Task {self.id}>'
-    
   
 
 @app.route('/')
