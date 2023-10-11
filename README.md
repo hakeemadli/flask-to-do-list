@@ -10,4 +10,4 @@ Flask based To-do-list progress with future improvement/ feature added for learn
 # Future Features
 * Modal for updating existing entry
 * Authentication method (Login & Register)
-* Security reliability (Oauth and form sanitization)
+* Secure reliability (Oauth and form sanitization)
