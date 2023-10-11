@@ -4,10 +4,10 @@ Flask based To-do-list progress with future improvement/ feature added for learn
 
 # Features
 * Basic CRUD ( Create, Read, Update, Delete)
-* Udpate Form
+* Update Form
 * Updating task status
 
 # Future Features
 * Modal for updating existing entry
-* Authentication method
+* Authentication method (Login & Register)
 * Security reliability (Oauth and form sanitization)
